@@ -1,0 +1,93 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<Order>
+@inject UserManager<IdentityUser> _userManager
+
+<style>
+    
+
+    .order-table th {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    .order-table td, .order-table th {
+        padding: 0.75rem;
+    }
+
+    .total-cell {
+        background-color: #d4edda;
+        font-weight: bold;
+    }
+
+    .no-orders-message {
+        margin-top: 2rem;
+    }
+</style>
+
+<div style="width:100%" class="mt-2">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary my-2">Назад</a>
+
+    <h4>Список заказов пользователей</h4>
+    @if (Model != null && Model.Count() > 0)
+    {
+        <table class="table table-striped order-table">
+            <tr>
+                <th>Дата</th>
+                <th>Email</th>
+                <th>Статус</th>
+            </tr>
+            @foreach (var order in Model)
+            {
+                <tr class="order-row">
+                    <td>@order.CreateDate.ToString("dd-MM-yyyy")</td>
+                    <td>
+                        <hr class="mb-2 mt-0">
+                        @{
+                            var user = await _userManager.FindByIdAsync(order.UserId);
+                            var userEmail = user?.Email ?? "N/A";
+                        }
+                        @userEmail
+                    </td>
+                    <td>@order.OrderStatus.StatusName</td>
+                </tr>
+                @if (order.OrderDetail != null && order.OrderDetail.Count > 0)
+                {
+                    <tr class="order-info">
+                        <td colspan="3">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Total:</td>
+                                    <td class="total-cell">
+                                        @(order.OrderDetail
+                                            .Where(item => item.Items != null)
+                                            .Sum(item => item.Items.Price * item.Quantity)) руб.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Товар</th>
+                                    <th>Цена/Кол-во</th>
+                                    <th>Итог</th>
+                                </tr>
+                                @foreach (var item in order.OrderDetail)
+                                {
+                                    <tr>
+                                        <td>@(item.Items?.Title ?? "N/A")</td>
+                                        <td>@item.Items?.Price X @item.Quantity</td>
+                                        <td> @(item.Items?.Price * item.Quantity) руб.</td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="3"><hr></td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h5 class="no-orders-message">Нет заказов</h5>
+    }
+</div>

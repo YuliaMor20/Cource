@@ -1,0 +1,28 @@
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\bin\Debug\net6.0\ESHOP.Models.deps.json
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\bin\Debug\net6.0\ESHOP.Models.dll
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\bin\Debug\net6.0\ESHOP.Models.pdb
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.csproj.AssemblyReference.cache
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.AssemblyInfoInputs.cache
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.AssemblyInfo.cs
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.csproj.CoreCompileInputs.cache
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.dll
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\obj\Debug\net6.0\refint\ESHOP.Models.dll
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.pdb
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\obj\Debug\net6.0\ref\ESHOP.Models.dll
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\bin\Debug\net6.0\ESHOP.Models.runtimeconfig.json
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.genruntimeconfig.cache
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\bin\Debug\net6.0\ESHOP.Models.deps.json
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\bin\Debug\net6.0\ESHOP.Models.runtimeconfig.json
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\bin\Debug\net6.0\ESHOP.Models.dll
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\bin\Debug\net6.0\ESHOP.Models.pdb
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.csproj.AssemblyReference.cache
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.AssemblyInfoInputs.cache
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.AssemblyInfo.cs
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.csproj.CoreCompileInputs.cache
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.dll
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\obj\Debug\net6.0\refint\ESHOP.Models.dll
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.pdb
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\obj\Debug\net6.0\ESHOP.Models.genruntimeconfig.cache
+C:\Users\himar\Desktop\ESHOP\ESHOP.Models\obj\Debug\net6.0\ref\ESHOP.Models.dll

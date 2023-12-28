@@ -1,0 +1,131 @@
+﻿@model Beauty.Models.Record
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create" method="post" id="RecordForm">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="UserId" class="control-label"></label>
+        <input asp-for="UserId" class="form-control" />
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BServiceId" class="control-label"></label>
+        @Html.DropDownList("BServiceId", ViewBag.BServiceId as SelectList, "Select BService", new { @class = "form-control" })
+        <span asp-validation-for="BServiceId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MasterId" class="control-label"></label>
+        @Html.DropDownList("MasterId", ViewBag.MasterId as SelectList, "Select Master", new { @class = "form-control" })
+        <span asp-validation-for="MasterId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CreateDateTime">Date and Time</label>
+        <input asp-for="CreateDateTime" class="form-control" type="datetime-local" min="10:00" max="21:30" />
+        <!-- Устанавливаем атрибуты min и max для ограничения времени -->
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // Функция для отображения уведомлений
+        function showAlert(message) {
+            alert(message);
+        }
+
+        // Функция для получения времени для BService по его идентификатору
+        async function getBServiceTimeById(bServiceId) {
+            try {
+                const response = await fetch(`/Record/GetBServiceTime?bServiceId=${bServiceId}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    return data.time;
+                } else {
+                    console.error(data.message);
+                    return 0; // Возвращаем 0 в случае ошибки
+                }
+            } catch (error) {
+                console.error(error);
+                return 0; // Возвращаем 0 в случае ошибки
+            }
+        }
+
+        // Функция для валидации времени
+        async function validateTime() {
+            var selectedDateTime = new Date(document.getElementById("CreateDateTime").value);
+
+            var maxDateTimeService = new Date("2023-01-01T22:00");
+
+            var bServiceId = document.getElementById("BServiceId").value;
+
+            // Получаем время услуги на основе BServiceId
+            var bServiceTime = await getBServiceTimeById(bServiceId);
+
+            // Рассчитываем конечное время услуги
+            var serviceEndTime = new Date(selectedDateTime.getTime() + bServiceTime * 60000); // bServiceTime в минутах
+
+            // Проверяем, не превышает ли выбранное время + время услуги 22:00
+            if (serviceEndTime > maxDateTimeService) {
+                showAlert("The selected service time exceeds the available hours. Please choose a different time.");
+                return false;
+            }
+
+            // Проверяем, есть ли у выбранного мастера пересекающиеся записи
+            var masterId = document.getElementById("MasterId").value;
+            var overlappingAppointments = await checkOverlappingAppointments(selectedDateTime, serviceEndTime, masterId);
+
+            console.log("Overlapping Appointments: ", overlappingAppointments);
+
+            if (overlappingAppointments) {
+                showAlert("The selected master has overlapping appointments. Please choose a different time.");
+                return false;
+            }
+
+            return true;
+        }
+
+        // Функция для проверки пересекающихся записей
+        async function checkOverlappingAppointments(startTime, endTime, masterId) {
+            try {
+                const response = await fetch(`/Record/CheckOverlappingAppointments?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}&masterId=${masterId}`);
+                const data = await response.json();
+
+                return data.hasOverlappingAppointments;
+            } catch (error) {
+                console.error(error);
+                return false;
+            }
+        }
+
+        // Обработчик события отправки формы
+        document.getElementById("RecordForm").addEventListener("submit", async function (event) {
+            console.log("Form submitted");
+            if (!(await validateTime())) {
+                console.log("Validation failed. Preventing default behavior.");
+                event.preventDefault(); // Предотвращаем стандартное поведение при неудачной валидации
+                return false;
+            }
+        });
+    </script>
+}
+</script>

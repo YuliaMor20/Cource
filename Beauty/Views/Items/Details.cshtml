@@ -1,0 +1,109 @@
+﻿@model Beauty.Models.Item
+
+<style>
+    .container {
+        margin-top: 50px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    hr {
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+
+    .item-image {
+        text-align: center;
+    }
+
+        .item-image img {
+            max-height: 400px;
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            background-color: #f8f9fa;
+        }
+
+    .details-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        .details-list dt {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .details-list dd {
+            margin-bottom: 10px;
+        }
+
+    .back-to-list {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
+    <h2>@Html.DisplayFor(model => model.Title)</h2>
+    <hr />
+
+    <div class="item-image">
+        @{
+            var base64 = Convert.ToBase64String(Model.Image);
+            var imgsrc = string.Format("data:image/jpg;base64, {0}", base64);
+        }
+        <img src="@imgsrc" alt="Product Image" />
+    </div>
+   Цена
+    <dd>@Html.DisplayFor(model => model.Price) руб.</dd>
+    <div class="add-to-cart">
+        <button type="button" onclick="addToCart(@Model.Id)" class="btn btn-success">Купить</button>
+    </div>
+
+    <dl class="details-list">
+        <dt>Описание:</dt>
+        <dd>@Html.DisplayFor(model => model.Description)</dd>
+        <dt>Категория:</dt>
+        <dd>@Html.DisplayFor(model => model.Category.Title)</dd>
+
+    </dl>
+
+    <div class="back-to-list">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Каталог</a>
+    </div>
+
+  
+</div>
+
+@section Scripts {
+    <script>
+        async function addToCart(itemId) {
+            var usernameEl = document.getElementById("username");
+            if (usernameEl == null) {
+                window.location.href = "/Identity/Account/Login";
+            }
+            try {
+                // Здесь вы можете добавить необходимые параметры для добавления в корзину
+                var response = await fetch(`/Cart/AddItem?itemId=${itemId}`);
+                if (response.status == 200) {
+                    var result = await response.json();
+                    var cartCountEl = document.getElementById("cartCount");
+                    if (cartCountEl) {
+                        cartCountEl.innerHTML = result;
+                        window.location.href = "#cartCount";
+                    } else {
+                        // Обновите ваш интерфейс, чтобы отобразить успешное добавление в корзину
+                        alert("Item added to cart successfully!");
+                    }
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+    </script>
+}

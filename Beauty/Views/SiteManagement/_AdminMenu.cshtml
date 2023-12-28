@@ -1,0 +1,33 @@
+﻿<style>
+    .white{
+        background-color:ghostwhite ;
+        flex: 1; /* Занимает доступное пространство по вертикали */
+        display: flex;
+        width:20%;
+        margin-top:20px;
+    }
+</style>
+<div class="white">
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="categories" asp-action="Index">Категории</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="Items" asp-action="Index">Товары</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="UserOrder" asp-action="AllUserOrders">Список заказов пользователей</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="Users" asp-action="Index">Список пользователей</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="Masters" asp-action="Index">Мастера</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="TypeServices" asp-action="Index">Типы услуг</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="BServices" asp-action="Index">Услуги</a>
+</ul>
+</div>

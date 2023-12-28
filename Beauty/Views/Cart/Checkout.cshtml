@@ -1,0 +1,99 @@
+﻿@model Beauty.ViewModels.CheckoutViewModel
+<style>
+    .white{
+        background-color:white;
+    }
+</style>
+<!-- Включение внешних стилей Bootstrap -->
+
+<div class="white">
+<!-- Заголовок страницы -->
+<h1 class="mt-5">Оплата</h1>
+
+<!-- Область содержимого -->
+<div class="container mt-4">
+    <!-- Секция корзины пользователя -->
+    <section>
+        <h2>Корзина</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Товар</th>
+                    <th>Кол-во</th>
+                    <th>Цена</th>
+                    <th>Итог</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ShoppingCart.CartDetails)
+                {
+                    <tr>
+                        <td>@item.Item.Title</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.UnitPrice</td>
+                        <td>@(item.Quantity * item.UnitPrice)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Секция информации об оплате -->
+    <section class="mt-4">
+        <h2>Информация для оплаты</h2>
+        <!-- Форма для ввода данных карты -->
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="PaymentInfo.FullName">ФИО</label>
+                <input asp-for="PaymentInfo.FullName" class="form-control" required />
+                <span asp-validation-for="PaymentInfo.FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PaymentInfo.CardNumber">Номер карты</label>
+                <input asp-for="PaymentInfo.CardNumber" class="form-control" placeholder="1234 5678 9012 3456" required />
+                <span asp-validation-for="PaymentInfo.CardNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="PaymentInfo.ExpirationDate">Срок карты</label>
+                    <input asp-for="PaymentInfo.ExpirationDate" class="form-control" placeholder="MM/YY" required />
+                    <span asp-validation-for="PaymentInfo.ExpirationDate" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="PaymentInfo.CVV">CVV</label>
+                    <input asp-for="PaymentInfo.CVV" class="form-control" placeholder="CVV" required />
+                    <span asp-validation-for="PaymentInfo.CVV" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="PaymentInfo.City">Город</label>
+                    <input asp-for="PaymentInfo.City" class="form-control" required />
+                    <span asp-validation-for="PaymentInfo.City" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="PaymentInfo.PostalCode">Почтовый индекс</label>
+                    <input asp-for="PaymentInfo.PostalCode" class="form-control" required />
+                    <span asp-validation-for="PaymentInfo.PostalCode" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Дополнительные стили для кнопки размещения заказа -->
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Оплатить</button>
+            <form method="post" asp-action="CancelOrder" asp-controller="Cart" class="mt-4">
+                <button type="submit" class="btn btn-secondary btn-lg btn-block">Отменить заказ</button>
+            </form>
+        </form>
+    </section>
+</div>
+</div>
+<!-- Включение внешних скриптов Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>

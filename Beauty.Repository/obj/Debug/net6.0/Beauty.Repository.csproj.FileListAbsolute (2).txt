@@ -1,0 +1,34 @@
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Repository.deps.json
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Repository.dll
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Repository.pdb
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Models.dll
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Models.pdb
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.csproj.AssemblyReference.cache
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.AssemblyInfoInputs.cache
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.AssemblyInfo.cs
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.csproj.CoreCompileInputs.cache
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.csproj.CopyComplete
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.dll
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\refint\ESHOP.Repository.dll
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.pdb
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ref\ESHOP.Repository.dll
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Repository.runtimeconfig.json
+C:\Users\himar\Desktop\Study\3 Курс\5 сем\Тп\app\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.genruntimeconfig.cache
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Repository.deps.json
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Repository.runtimeconfig.json
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Repository.dll
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Repository.pdb
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Models.dll
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\bin\Debug\net6.0\ESHOP.Models.pdb
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.csproj.AssemblyReference.cache
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.AssemblyInfoInputs.cache
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.AssemblyInfo.cs
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.csproj.CoreCompileInputs.cache
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.csproj.CopyComplete
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.dll
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\refint\ESHOP.Repository.dll
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.pdb
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ESHOP.Repository.genruntimeconfig.cache
+C:\Users\himar\Desktop\ESHOP\ESHOP.Repository\obj\Debug\net6.0\ref\ESHOP.Repository.dll

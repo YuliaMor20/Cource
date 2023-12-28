@@ -1,0 +1,18 @@
+﻿
+@model Beauty.ViewModels.EditUserRoleViewModel
+
+<h1>Изменение роли пользователя</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" readonly />
+    </div>
+
+    <div>
+        <label asp-for="UserRoles">Роль</label>
+        <select asp-for="SelectedRoles" asp-items="new SelectList(Model.AllRoles)" multiple class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>

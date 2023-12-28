@@ -1,0 +1,19 @@
+﻿@model Beauty.Models.Item
+
+<h2>Оформление заказа на склад</h2>
+
+<p>
+    Товар: @Model.Title<br />
+    Доступное количество: @Model.Availability
+</p>
+
+<form method="post" asp-controller="Items" asp-action="OrderOnWarehouse">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div class="form-group">
+        <label>Количество:</label>
+        <input type="number" class="form-control" name="quantity" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Заказать на склад</button>
+</form>
+
+<a asp-action="Index">Назад к списку товаров</a>

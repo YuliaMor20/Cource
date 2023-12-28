@@ -1,0 +1,107 @@
+﻿@model Beauty.ViewModels.BServiceDisplayModel
+
+<input type="hidden" id="selectedTypeServiceId" value="@Model.TypeServiceId" />
+<div>
+    <h4>Выберите мастера:</h4>
+    <select id="selectMaster" required>
+        <!-- Опции для выбора мастера будут добавлены динамически с помощью JavaScript -->
+    </select>
+</div>
+
+<div>
+    <h4>Выберите дату:</h4>
+    <input type="date" id="selectedDate" required />
+</div>
+
+<div>
+    <h4>Выберите время:</h4>
+    <div id="timeSlots" class="time-slots-container">
+        <!-- Здесь будут отображаться закругленные прямоугольники с временем -->
+        <div class="time-slot" data-time="12:00">12:00</div>
+        <div class="time-slot" data-time="14:00">14:00</div>
+        <div class="time-slot" data-time="16:00">16:00</div>
+        <div class="time-slot" data-time="18:00">18:00</div>
+    </div>
+</div>
+
+<button id="submitBtn" type="submit" disabled>Записаться</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Получаем элементы управления
+        const selectMaster = document.getElementById("selectMaster");
+        const selectedDate = document.getElementById("selectedDate");
+        const timeSlotsContainer = document.getElementById("timeSlots");
+        const submitBtn = document.getElementById("submitBtn");
+
+
+        const selectedTypeServiceId = document.getElementById("selectedTypeServiceId").value;
+        // Добавляем обработчики событий
+        selectMaster.addEventListener("change", updateAvailableTimeSlots);
+        selectedDate.addEventListener("change", updateAvailableTimeSlots);
+        timeSlotsContainer.addEventListener("click", handleTimeSlotClick);
+
+        // Загрузка мастеров при загрузке страницы
+        loadMasters();
+
+        function loadMasters() {
+            // Получаем выбранный тип услуги
+            const selectedTypeServiceId = @Model.TypeServiceId; /* Получите выбранный TypeServiceId, например, из предыдущих данных на странице */;
+
+            // Запрос на сервер для получения списка мастеров
+            fetch(`/BServices/GetMasters?typeServiceId=${selectedTypeServiceId}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Заполнение выпадающего списка мастеров
+                    data.forEach(master => {
+                        const option = document.createElement("option");
+                        option.value = master.id;
+                        option.text = master.name; // Предполагается, что у мастера есть свойство "name"
+                        selectMaster.appendChild(option);
+                    });
+                });
+        }
+
+        // Функция для обновления доступных временных слотов
+        function updateAvailableTimeSlots() {
+            // Получаем выбранный мастер и дату
+            const selectedMasterId = selectMaster.value;
+            const selectedDateValue = selectedDate.value;
+
+            // Проверяем, что мастер и дата выбраны
+            if (selectedMasterId && selectedDateValue) {
+                // Отправляем запрос на сервер для получения доступных временных слотов
+                fetch(`/BServices/GetAvailableTimeSlots?masterId=${selectedMasterId}&selectedDate=${selectedDateValue}`)
+                    .then(response => response.json())
+                    .then(timeSlots => {
+                        // Обновляем отображение временных слотов
+                        updateTimeSlotsUI(timeSlots);
+                    });
+            }
+        }
+
+        // Функция для обновления отображения временных слотов
+        function updateTimeSlotsUI(timeSlots) {
+            // Очищаем текущие временные слоты
+            timeSlotsContainer.innerHTML = "";
+
+            // Добавляем новые временные слоты в соответствии с полученными данными
+            timeSlots.forEach(timeSlot => {
+                const timeSlotElement = document.createElement("div");
+                timeSlotElement.classList.add("time-slot");
+                timeSlotElement.dataset.time = timeSlot;
+                timeSlotElement.innerText = timeSlot;
+                timeSlotsContainer.appendChild(timeSlotElement);
+            });
+        }
+
+        // Функция для обработки выбора временного слота
+        function handleTimeSlotClick(event) {
+            const target = event.target;
+            if (target.classList.contains("time-slot") && !target.classList.contains("disabled")) {
+                // Обработка выбора временного слота, например, выделение и передача выбранного времени в форму
+                alert("Выбрано время: " + target.dataset.time);
+            }
+        }
+    });
+</script>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Beauty.Models.Record>
+
+<h2>Мои записи</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ID Услуги</th>
+                <th>Наименование услуги</th>
+                <th>Цена</th>
+                <th>Время</th>
+                <th>Дата записи</th>
+                <!-- Добавьте другие поля, которые вы хотите отобразить -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var record in Model)
+            {
+                <tr>
+                    <td>@record.Id</td>
+                    <td>@record.BServiceId</td>
+                    <td>@record.BService.Title</td>
+                    <td>@record.BService.Price</td>
+                    <td>@record.BService.Time</td>
+                    <td>@record.CreateDateTime</td>
+                    <!-- Добавьте другие поля, которые вы хотите отобразить -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No records found.</p>
+}

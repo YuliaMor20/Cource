@@ -1,0 +1,127 @@
+﻿@model Beauty.ViewModels.BServiceDisplayModel
+
+<style>
+    main {
+        margin-left: 0;
+        padding-top: 0;
+        text-align: left;
+    }
+
+    .input-group-text {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+    }
+
+    .container-fluid {
+        padding-left: 0;
+    }
+
+    .input-group-text i {
+        color: #fff;
+    }
+
+    .form-select,
+    .form-control {
+        width: 100%;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+    .sidebar {
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-right: 1px solid #dee2e6;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .sidebar {
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-right: 1px solid #dee2e6;
+        position: sticky;
+        top: 0;
+    }
+
+    .navbar {
+        z-index: 1000;
+    }
+
+    /* Updated styles for moving the table to the left */
+    .search-table {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+</style>
+
+<div class="container-fluid">
+    <div class="row top-left-container">
+        <div class="col-lg-3 sidebar sidebar ms-0">
+            <form asp-action="BServicesIndex" class="mb-3">
+                <label class="visually-hidden" for="typeserviceId">Категория</label>
+                <select class="form-select" id="typesrviceId" name="typeserviceId">
+                    <option selected>Категория</option>
+                    @foreach (var typesrvice in Model.TypeServices)
+                    {
+                        <option selected="@(typesrvice.Id == Model.TypeServiceId)" value="@typesrvice.Id">@typesrvice.Title</option>
+                    }
+                </select>
+                <label class="visually-hidden" for="sterm" class="mt-3">Поиск</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="search-addon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" value="@Model.STerm" id="sterm" name="sterm" placeholder="Поиск">
+                </div>
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-pink">Поиск</button>
+                    <a href="/Home/BServicesIndex" class="btn btn-dark">Сброс</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-9 main-content">
+            <div class="w-100 mt-6 d-flex flex-wrap">
+                @foreach (var bService in Model.BServices)
+                {
+                    <div class="card mx-3 mb-6" style="width: 11rem;">
+                        @{
+                            var base64 = Convert.ToBase64String(bService.Image);
+                            var imgsrc = string.Format("data:image/jpg;base64, {0}", base64);
+                        }
+                        <a href="@Url.Action("Details", "BServices", new { id = bService.Id })">
+                            <img src="@imgsrc" height="170px" width="174.4px" />
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">@bService.Title</h5>
+                            <p class="card-text">
+                                <b>Категория: </b>@bService.TypeService.Title<br />
+                                <b>Цена: </b>@bService.Price<b> руб.</b>
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

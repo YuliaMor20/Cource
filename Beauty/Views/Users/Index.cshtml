@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model List<IdentityUser>
+
+<h1>Пользователи</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>
+                    <a asp-action="EditRole" asp-route-userId="@user.Id">Изменить роль</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

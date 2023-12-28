@@ -1,0 +1,89 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: url('/Images/Items/fon2.jpg') center center fixed;
+    background-size: cover;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стили для content (текста) */
+.content {
+    flex: 1; /* Занимает доступное пространство по вертикали */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем контент по вертикали */
+    align-items: center; /* Центрируем контент по горизонтали */
+    padding: 20px;
+}
+
+/* Стили для кнопок */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-pink {
+    background-color: #c8a2c8;
+    border-color: #c8a2c8;
+    color: #fff;
+    margin: 0 10px; /* Добавляем расстояние по бокам кнопок */
+}
+
+/* Стили для footer */
+footer {
+    background: linear-gradient(to right, #e6a8d7, #eebef1);
+    padding: 5px 0;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px; /* Размер шрифта футера */
+    margin-top: auto; /* Помещаем футер внизу страницы */
+}
+
+/* Остальные стили остаются без изменений */
+.header {
+    background: linear-gradient(to right, #e6a8d7, #eebef1);
+    padding: 10px 0;
+    box-shadow: 0 4px 6px -6px #c8a2c8;
+}
+
+.navbar {
+    background: linear-gradient(to right, #e6a8d7, #eebef1);
+    width: 100%;
+    border-radius: 20px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #c8a2c8;
+    }
+
+.content {
+    flex: 1; /* Занимает доступное пространство по вертикали */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем контент по вертикали */
+    align-items: center; /* Центрируем контент по горизонтали */
+    padding: 20px;
+    margin-top: 100px; /* Добавляем отступ сверху */
+}

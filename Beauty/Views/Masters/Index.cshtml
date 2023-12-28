@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Beauty.ViewModels.MasterViewModel>
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeService.Title)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var master in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => master.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => master.TypeService.Title)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@master.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@master.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@master.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

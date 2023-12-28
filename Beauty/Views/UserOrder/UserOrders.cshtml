@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Order>
+@{
+}
+
+<style>
+    .order-table {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+        .order-table th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .order-table td, .order-table th {
+            padding: 0.75rem;
+        }
+
+    .order-detail-table {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+        .order-detail-table th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .order-detail-table td, .order-detail-table th {
+            padding: 0.5rem;
+        }
+
+            .order-detail-table td:nth-child(odd) {
+                background-color: #f8f9fa;
+            }
+
+    .total-cell {
+        background-color: #d4edda; /* Мягкий зеленый цвет */
+    }
+
+    .no-orders-message {
+        margin-top: 2rem;
+    }
+</style>
+
+<div style="width:100%" class="mt-2">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary my-2">Назад</a>
+
+    <h4>Мои заказы</h4>
+    @if (Model != null && Model.Count() > 0)
+    {
+        <table class="table table-striped order-table">
+            <tr>
+                <th>Дата</th>
+                <th>Статус</th>
+            </tr>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.CreateDate.ToString("dd-MM-yyyy")</td>
+                    <td>@order.OrderStatus.StatusName</td>
+                </tr>
+                @if (order.OrderDetail != null && order.OrderDetail.Count > 0)
+                {
+                    <tr>
+                        <td colspan="2">
+                            <table class="table table-striped order-detail-table">
+                                <tr>
+                                    <th>Total:</th>
+                                    <td class="total-cell">
+                                        @(order.OrderDetail
+                                            .Where(item => item.Items != null)
+                                            .Sum(item => item.Items.Price * item.Quantity)) руб.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Товар</th>
+                                    <th>Цена/Кол-во</th>
+                                    <th>Итог</th>
+                                </tr>
+                                @foreach (var item in order.OrderDetail)
+                                {
+                                    <tr>
+                                        <td>@(item.Items?.Title ?? "N/A")</td>
+                                        <td>@item.Items?.Price X @item.Quantity</td>
+                                        <td> @(item.Items?.Price * item.Quantity) руб.</td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="3"><hr></td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h5 class="no-orders-message">Нет заказов</h5>
+    }
+</div>
