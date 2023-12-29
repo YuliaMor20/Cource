@@ -1,5 +1,13 @@
 ﻿@model IEnumerable<Beauty.Models.Record>
-
+<style>
+    body {
+        background: url('/Images/Items/fon2.jpg') center center fixed;
+        background-size: cover;
+        color: black;
+        display: flex;
+        flex-direction: column;
+    }
+</style>
 <h2>Мои записи</h2>
 
 @if (Model != null && Model.Any())

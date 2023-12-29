@@ -1,12 +1,16 @@
 ﻿<style>
-    .white{
-        background-color:ghostwhite ;
-        flex: 1; /* Занимает доступное пространство по вертикали */
+    body {
+        background: url('/Images/Items/fon2.jpg') center center fixed;
+        background-size: cover;
+        color: black;
         display: flex;
-        width:20%;
-        margin-top:20px;
+        flex-direction: column;
+    }
+    .white{
+        background-color:white;
     }
 </style>
+<body>
 <div class="white">
 <ul class="navbar-nav flex-grow-1">
     <li class="nav-item">
@@ -31,3 +35,4 @@
         <a class="nav-link text-dark" asp-controller="BServices" asp-action="Index">Услуги</a>
 </ul>
 </div>
+</body>

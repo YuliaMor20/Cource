@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Repository\\Beauty.Repository.csproj": {}
+    "D:\\Beauty\\Cource\\Beauty.Repository\\Beauty.Repository.csproj": {}
   },
   "projects": {
-    "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Models\\Beauty.Models.csproj": {
+    "D:\\Beauty\\Cource\\Beauty.Models\\Beauty.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Models\\Beauty.Models.csproj",
+        "projectUniqueName": "D:\\Beauty\\Cource\\Beauty.Models\\Beauty.Models.csproj",
         "projectName": "Beauty.Models",
-        "projectPath": "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Models\\Beauty.Models.csproj",
-        "packagesPath": "C:\\Users\\himar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Models\\obj\\",
+        "projectPath": "D:\\Beauty\\Cource\\Beauty.Models\\Beauty.Models.csproj",
+        "packagesPath": "C:\\Users\\Юлия\\.nuget\\packages\\",
+        "outputPath": "D:\\Beauty\\Cource\\Beauty.Models\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\himar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Юлия\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +38,9 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "default"
         }
       },
       "frameworks": {
@@ -41,6 +48,10 @@
           "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[6.0.11, )"
             },
@@ -70,26 +81,44 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Repository\\Beauty.Repository.csproj": {
+    "D:\\Beauty\\Cource\\Beauty.Repository\\Beauty.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Repository\\Beauty.Repository.csproj",
+        "projectUniqueName": "D:\\Beauty\\Cource\\Beauty.Repository\\Beauty.Repository.csproj",
         "projectName": "Beauty.Repository",
-        "projectPath": "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Repository\\Beauty.Repository.csproj",
-        "packagesPath": "C:\\Users\\himar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Repository\\obj\\",
+        "projectPath": "D:\\Beauty\\Cource\\Beauty.Repository\\Beauty.Repository.csproj",
+        "packagesPath": "C:\\Users\\Юлия\\.nuget\\packages\\",
+        "outputPath": "D:\\Beauty\\Cource\\Beauty.Repository\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\himar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Юлия\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,8 +132,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Models\\Beauty.Models.csproj": {
-                "projectPath": "C:\\Users\\himar\\Desktop\\Beauty\\Beauty.Models\\Beauty.Models.csproj"
+              "D:\\Beauty\\Cource\\Beauty.Models\\Beauty.Models.csproj": {
+                "projectPath": "D:\\Beauty\\Cource\\Beauty.Models\\Beauty.Models.csproj"
               }
             }
           }
@@ -113,6 +142,9 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "default"
         }
       },
       "frameworks": {
@@ -131,6 +163,10 @@
               "target": "Package",
               "version": "[6.0.11, )"
             },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.11, )"
@@ -157,12 +193,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

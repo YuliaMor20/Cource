@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Beauty.Repository")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce30638d40bf0ae4eb278c9c9233742fb1fb074f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Beauty.Repository")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Beauty.Repository")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

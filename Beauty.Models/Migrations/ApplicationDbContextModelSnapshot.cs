@@ -22,7 +22,7 @@ namespace Beauty.Models.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ESHOP.Models.BService", b =>
+            modelBuilder.Entity("Beauty.Models.BService", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,7 +60,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("BServices");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.CartDetail", b =>
+            modelBuilder.Entity("Beauty.Models.CartDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,7 +89,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("CartDetail");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Category", b =>
+            modelBuilder.Entity("Beauty.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -106,7 +106,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Item", b =>
+            modelBuilder.Entity("Beauty.Models.Item", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -139,7 +139,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("Items");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Master", b =>
+            modelBuilder.Entity("Beauty.Models.Master", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -161,7 +161,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("Masters");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Order", b =>
+            modelBuilder.Entity("Beauty.Models.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -189,7 +189,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("Order");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.OrderDetail", b =>
+            modelBuilder.Entity("Beauty.Models.OrderDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -218,7 +218,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("OrderDetail");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.OrderStatus", b =>
+            modelBuilder.Entity("Beauty.Models.OrderStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -239,7 +239,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("OrderStatus");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Record", b =>
+            modelBuilder.Entity("Beauty.Models.Record", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -269,7 +269,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("Record");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.RecordDetail", b =>
+            modelBuilder.Entity("Beauty.Models.RecordDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -295,7 +295,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("RecordDetails");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.ShoppingCart", b =>
+            modelBuilder.Entity("Beauty.Models.ShoppingCart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -315,7 +315,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("ShoppingCart");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.TypeService", b =>
+            modelBuilder.Entity("Beauty.Models.TypeService", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -536,7 +536,7 @@ namespace Beauty.Models.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ESHOP.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Beauty.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -546,13 +546,13 @@ namespace Beauty.Models.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.BService", b =>
+            modelBuilder.Entity("Beauty.Models.BService", b =>
                 {
-                    b.HasOne("ESHOP.Models.Master", null)
+                    b.HasOne("Beauty.Models.Master", null)
                         .WithMany("BServices")
                         .HasForeignKey("MasterId");
 
-                    b.HasOne("ESHOP.Models.TypeService", "TypeService")
+                    b.HasOne("Beauty.Models.TypeService", "TypeService")
                         .WithMany("BServices")
                         .HasForeignKey("TypeServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -561,15 +561,15 @@ namespace Beauty.Models.Migrations
                     b.Navigation("TypeService");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.CartDetail", b =>
+            modelBuilder.Entity("Beauty.Models.CartDetail", b =>
                 {
-                    b.HasOne("ESHOP.Models.Item", "Item")
+                    b.HasOne("Beauty.Models.Item", "Item")
                         .WithMany()
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ESHOP.Models.ShoppingCart", "ShoppingCart")
+                    b.HasOne("Beauty.Models.ShoppingCart", "ShoppingCart")
                         .WithMany("CartDetails")
                         .HasForeignKey("ShoppingCartId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -580,9 +580,9 @@ namespace Beauty.Models.Migrations
                     b.Navigation("ShoppingCart");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Item", b =>
+            modelBuilder.Entity("Beauty.Models.Item", b =>
                 {
-                    b.HasOne("ESHOP.Models.Category", "Category")
+                    b.HasOne("Beauty.Models.Category", "Category")
                         .WithMany("Items")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -591,9 +591,9 @@ namespace Beauty.Models.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Master", b =>
+            modelBuilder.Entity("Beauty.Models.Master", b =>
                 {
-                    b.HasOne("ESHOP.Models.TypeService", "TypeService")
+                    b.HasOne("Beauty.Models.TypeService", "TypeService")
                         .WithMany("Masters")
                         .HasForeignKey("TypeServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -602,9 +602,9 @@ namespace Beauty.Models.Migrations
                     b.Navigation("TypeService");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Order", b =>
+            modelBuilder.Entity("Beauty.Models.Order", b =>
                 {
-                    b.HasOne("ESHOP.Models.OrderStatus", "OrderStatus")
+                    b.HasOne("Beauty.Models.OrderStatus", "OrderStatus")
                         .WithMany()
                         .HasForeignKey("OrderStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -613,15 +613,15 @@ namespace Beauty.Models.Migrations
                     b.Navigation("OrderStatus");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.OrderDetail", b =>
+            modelBuilder.Entity("Beauty.Models.OrderDetail", b =>
                 {
-                    b.HasOne("ESHOP.Models.Item", "Items")
+                    b.HasOne("Beauty.Models.Item", "Items")
                         .WithMany()
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ESHOP.Models.Order", "Order")
+                    b.HasOne("Beauty.Models.Order", "Order")
                         .WithMany("OrderDetail")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -632,15 +632,15 @@ namespace Beauty.Models.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Record", b =>
+            modelBuilder.Entity("Beauty.Models.Record", b =>
                 {
-                    b.HasOne("ESHOP.Models.BService", "BService")
+                    b.HasOne("Beauty.Models.BService", "BService")
                         .WithMany()
                         .HasForeignKey("BServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ESHOP.Models.Master", "Master")
+                    b.HasOne("Beauty.Models.Master", "Master")
                         .WithMany()
                         .HasForeignKey("MasterId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -651,15 +651,15 @@ namespace Beauty.Models.Migrations
                     b.Navigation("Master");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.RecordDetail", b =>
+            modelBuilder.Entity("Beauty.Models.RecordDetail", b =>
                 {
-                    b.HasOne("ESHOP.Models.BService", "BService")
+                    b.HasOne("Beauty.Models.BService", "BService")
                         .WithMany()
                         .HasForeignKey("BserviceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ESHOP.Models.Record", "Record")
+                    b.HasOne("Beauty.Models.Record", "Record")
                         .WithMany()
                         .HasForeignKey("RecordId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -721,27 +721,27 @@ namespace Beauty.Models.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Category", b =>
+            modelBuilder.Entity("Beauty.Models.Category", b =>
                 {
                     b.Navigation("Items");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Master", b =>
+            modelBuilder.Entity("Beauty.Models.Master", b =>
                 {
                     b.Navigation("BServices");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.Order", b =>
+            modelBuilder.Entity("Beauty.Models.Order", b =>
                 {
                     b.Navigation("OrderDetail");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.ShoppingCart", b =>
+            modelBuilder.Entity("Beauty.Models.ShoppingCart", b =>
                 {
                     b.Navigation("CartDetails");
                 });
 
-            modelBuilder.Entity("ESHOP.Models.TypeService", b =>
+            modelBuilder.Entity("Beauty.Models.TypeService", b =>
                 {
                     b.Navigation("BServices");
 

@@ -25,14 +25,25 @@ namespace Beauty.Controllers
         // GET: Record
         public async Task<IActionResult> Index()
         {
-            var records = await _context.Records.ToListAsync();
-            return View(records);
+            if (User.IsInRole("ADMIN") || User.IsInRole("MANAGER"))
+            {
+                var records = await _context.Records.ToListAsync();
+                return View(records);
+            }
+            else
+            {
+                // Пользователь не является администратором
+                return RedirectToAction("AccessDenied", "Account"); // Например, перенаправление на страницу с отказом в доступе
+            }
         }
+    
 
         // GET: Record/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            if (User.IsInRole("ADMIN") || User.IsInRole("MANAGER"))
+            {
+                if (id == null)
             {
                 return NotFound();
             }
@@ -45,6 +56,12 @@ namespace Beauty.Controllers
             }
 
             return View(record);
+        }
+            else
+            {
+                // Пользователь не является администратором
+                return RedirectToAction("AccessDenied", "Account"); // Например, перенаправление на страницу с отказом в доступе
+            }
         }
 
         public IActionResult Create(int bServiceId)
